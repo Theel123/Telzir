@@ -1,9 +1,13 @@
-<table class="table">
+
+
+<table class="table table-bordered">
   <thead>
+    
+
      <div class="col-sm-4 plan price-one"><a>
             </a><ul><a>
               <li class="heading-one">
-                  <h1><strong>PLANO 30 MEGA</strong></h1>
+              <h1><strong>PLANO 30 MEGA</strong></h1>
                 <span>R$78,80/Mês</span> </li>
               <li> Velocidade de Até 30 Megas</li>
               <li>Sem Limite de Tráfego </li>
@@ -13,10 +17,8 @@
               <li> Instalação Facilitada</li>
               <li>Consulte Disponibilidade</li>
               </a><li><a><a href="cadastro.php" class="btn-ordernow-black text-center"> Quero Este !</a></a></li><a>
-              </a><li><a></a><a href="planos.php" class="btn-ordernow-black text-center"> Mais Planos...</a></li>
             </ul>
           </div>
-
 
           <div class="col-sm-4 plan price-two">
             <ul>
@@ -31,7 +33,6 @@
               <li> Instalação Facilitada</li>
               <li>Consulte Disponibilidade</li>
               <li><a href="cadastro.php" class="btn-ordernow-black text-center"> Quero Este !</a></li>
-              <li><a href="planos.php" class="btn-ordernow-black text-center"> Mais Planos...</a></li>
             </ul>
           </div>
 
@@ -39,8 +40,8 @@
           <div class="col-sm-4 plan price-three">
             <ul>
               <li class="heading-three">
-                  <h1><strong>PLANO 80 MEGA</strong></h1>
-                <span>R$124,80/Mês</span> </li>
+              <h1><strong>PLANO 80 MEGA</strong></h1>
+              <span>R$124,80/Mês</span> </li>
               <li> Velocidade de Até 80 Mega</li>
               <li>Sem Limite de Tráfego </li>
               <li>Internet Banda Larga </li>
@@ -49,49 +50,7 @@
               <li> Instalação Facilitada</li>
               <li>Consulte Disponibilidade</li>
               <li><a href="cadastro.php" class="btn-ordernow-black text-center"> Quero Este !</a></li>
-              <li><a href="planos.php" class="btn-ordernow-black text-center"> Mais Planos...</a></li>
             </ul>
           </div>
-    <tr>
-      <th scope="col">Id</th>
-      <th scope="col">Origem</th>
-      <th scope="col">Destino</th>
-      <th scope="col">Tempo</th>
-      <th scope="col">Plano FaleMais</th>
-      <th scope="col">Com FaleMais</th>
-      <th scope="col">Sem FaleMais</th>
+        </table>
 
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-      <td>@mdo</td>
-      <td>@mdo</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-      <td>@mdo</td>
-      <td>@mdo</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-      <td>@mdo</td>
-      <td>@mdo</td>
-      <td>@mdo</td>
-    </tr>
-
-   
-  </tbody>
-</table>
