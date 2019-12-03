@@ -6,7 +6,7 @@ body {
     align-content: center;
 	
 }
-h1 {
+h1 ,h3{
 	
 	text-align:center;
 	align-content: center
@@ -75,4 +75,34 @@ nav {
 .login {
 	display:inline-block;
 	left:0px;
+}
+
+#meubtn30:checked+label>.card {
+  background-color: red;
+}
+label.none {
+  all: unset !important;
+}
+
+#meubtn60:checked+label>.card {
+  background-color: blue;
+}
+label.none {
+  all: unset !important;
+}
+
+
+#meubtn120:checked+label>.card {
+  background-color: green ;
+}
+label.none {
+  all: unset !important;
+}
+
+
+.tabela {
+
+    align-content: right;
+    text-align: right;
+    left: 0px
 }

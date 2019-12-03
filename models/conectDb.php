@@ -11,6 +11,11 @@
 	{
 		$pdo = new PDO("mysql:host=localhost;dbname=telzir", "root", "Pass@123");
 		print('conectado com sucesso'); 
+		$sql = "SELECT * FROM telzir.precosFaleMais";
+		$result = $pdo->query( $sql );
+		$rows = $result->fetchAll();	 
+		print('<pre>');
+		print_r( $rows );
 	}
 	catch (PDOException $i)
 	{
@@ -18,5 +23,4 @@
 		die("Erro: <code>" . $i->getMessage() . "</code>");
 	}
 		
-	
 	
