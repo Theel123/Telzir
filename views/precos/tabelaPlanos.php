@@ -10,7 +10,8 @@
     <label for="meubtn120" class="none">
       <div class="card py-2 pb-4 mt-2 ml-1" style="width: 15rem">
         <div class="card-header pb-0 border-0 bg-transparent text-center">
-          <h5 class="card-title">FaleMais 120</h5>
+                    <img src="imagens/faleMais30.png" alt="">
+
         </div>
         <div class="card-body text-center">
           <i class="fas fa-graduation-cap" style="font-size: 4rem"></i>
@@ -32,7 +33,8 @@
     <label for="meubtn120" class="none">
       <div class="card py-2 pb-4 mt-2 ml-1" style="width: 15rem">
         <div class="card-header pb-0 border-0 bg-transparent text-center">
-          <h5 class="card-title">FaleMais 120</h5>
+                    <img src="imagens/faleMais120.png" alt="">
+
         </div>
         <div class="card-body text-center">
           <i class="fas fa-graduation-cap" style="font-size: 4rem"></i>
@@ -54,7 +56,7 @@
     <label for="meubtn120" class="none">
       <div class="card py-2 pb-4 mt-2 ml-1" style="width: 15rem">
         <div class="card-header pb-0 border-0 bg-transparent text-center">
-          <h5 class="card-title">FaleMais 120</h5>
+          <img src="imagens/faleMais60.png" alt="">
         </div>
         <div class="card-body text-center">
           <i class="fas fa-graduation-cap" style="font-size: 4rem"></i>

@@ -1,11 +1,12 @@
 <?php
+require('conectDb.php');
 
 Class planoFaleMais {
 
 	private $conexao;
 
 	public function __construct() {
-		$this->conexao = new PDO("mysql:host=localhost;dbname=telzir","root","Pass@123");
+		$this->conexao = new PDO("mysql:host=localhost;dbname=telzir", "root", "Pass@123");
 	}
 
 
@@ -34,8 +35,6 @@ Class planoFaleMais {
 
 	
 	}
-
-	
 }
-
+getAll();
 ?>

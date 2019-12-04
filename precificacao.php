@@ -5,36 +5,38 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" type="text/css" href="css/site.css">
     <link rel="stylesheet" type="text/css" href="css/tabelas.css">
-  
+     <link rel="stylesheet" href="css/site.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    
     <title>Planos</title>
 </head>
 <body>
-
 	<?php require('views/layoutFixo/menu.html');?>
 
-	<h1>Preços e Plano</h1>
-	<p>Somos uma equipe especializada em precificacao em chamadas</p>
-	<?php require('views/precos/tabelaOrigemDestino.php')?>
-	<br>
-	<br>
-	<h1>Selecione seu Plano</h1>
-	<br>
-	<br>
-	
+  <div class="container">
+    <div class="row justify-content-center">
+      <h1>Preços e Planos</h1>
+      <p>Abaixo segue nossa divisão de planos, escolha o que melhor te atender</p>
+  </div>
+</div>
+<br>
+<br>
+  <div class="container">
 	<div class="row d-flex justify-content-center">
-		<?php require('views/precos/tabelaPlanos.php');?>
-    </div>
-    <br>
-    <br>
-   <h3>Faça uma Simulação</h3>
-   <br>
-   <br>
-
-	<?php require('views/precos/formPrecificacao.html');?>  
-
-	<?php require('views/precos/tabelaSimulacao.php');?>  
+		
+	   <?php require('views/precos/tabelaPlanos.php');?>
+	   <h3>Faça uma Simulação</h3>
+	   <br>
+	   <br>
+	</div>
+   </div>
+<div id="container">
+	
+    <?php require('views/precos/formPrecificacao.php');?>
     <?php require('views/layoutFixo/footer.html');?>
 
+<script src="js/jquery-3.4.1.min.js" type="text/javascript" ></script>
+	<script src="js/bootstrap.bundle.min.js" type="text/javascript" ></script>
 </body>
 </html>
 
