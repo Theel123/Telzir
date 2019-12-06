@@ -53,7 +53,7 @@ function calculaPrecoChamada($precoMin, $quantidadeMinutos, $porcentagem,$plano)
     $minutosExcedentes = $quantidadeMinutos-$plano;
     print('Minutos Excedentes '.$minutosExcedentes.'<br>');
     
-    $precoMinMais10P = $precoMin  + ($porcentagem * $precoMin);
+    $precoMinMais10P = $precoMin  + ($precoMin / 100 * $porcentagem);
     print($precoMinMais10P);
     
     $precoChamadaComPlano = $precoMinMais10P * ($minutosExcedentes);

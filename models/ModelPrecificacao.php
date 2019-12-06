@@ -89,16 +89,15 @@
 		 $this->quantidadeMinutos = $quantidadeMinutos;
 
 		 $minutosExcedentes = $this->plano - $this->quantidadeMinutos;
+	 	 $retorno = 'cobre';
+	 	 if ($minutosExcedentes < 0){
 
-		 if ($minutosExcedentes >= 0 ) {
+	 	    	return abs($minutosExcedentes);
 
-		 	return abs($minutosExcedentes);
+	 	  } else {
 
-		 } else {
-
-		 	return false;
-
-		 }
+	 		return($retorno);
+	 	  }	 
 	}
 
 
@@ -113,18 +112,27 @@
 	}
 
 
-
-	public function calculaPrecoComPlano ($precoMinuto,$quantidadeMinutos,$porcentagem,$plano) 
+	public function calculaPorcentagem($precoMinuto, $porcentagem) 
 	{
 		$this->precoMinuto = $precoMinuto;
+		$this->porcentagem = $porcentagem;
+
+		$precoMinutoAcrescidoDezPorcento = $precoMinuto + ($precoMinuto  / 100 * $porcentagem);
+
+		return $precoMinutoAcrescidoDezPorcento;
+
+	}
+
+	public function calculaPrecoComPlano ($precoMinuto,$quantidadeMinutos) 
+	{
+		
 		$this->quantidadeMinutos = $quantidadeMinutos;
-		$this->plano =$plano;
-		$this->porcentage = $porcentagem;
+		$this->precoMinuto =$precoMinuto;
+		
 
 
-			$precoMinutoAcrescidoDezPorcento = $precoMinuto + ($porcentagem + $precoMinuto);
-			return $precoMinutoAcrescidoDezPorcento;
-
+		$precoChamadaComPlano = ($precoMinuto * $quantidadeMinutos);
+		return $precoChamadaComPlano;
 	}
 
 

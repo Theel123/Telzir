@@ -15,12 +15,10 @@ require_once('../models/ModelPrecificacao.php');
 $precificacoes = new parametrosCalculados();
 
 $precoMinuto = $precificacoes->verificaPrecoMinuto($origem,$destino);
-$valorChamadaSemPlano = $precificacoes->calculaPrecoSemPlano($precoMinuto, $quantidadeMinutos);
+$precoMinutoDezPorcentoAcrescido = $precificacoes->calculaPorcentagem($precoMinuto,$porcentagem);
 $minutosExcedentes = $precificacoes->calculaMinutosExcedentes($faleMaisSelecionado, $quantidadeMinutos);
-$valorChamadaComPlano = $precificacoes->calculaPrecoComPlano($precoMinuto, $minutosExcedentes, $porcentagem,$faleMaisSelecionado);
-
-
-
+$valorChamadaSemPlano = $precificacoes->calculaPrecoSemPlano($precoMinuto, $quantidadeMinutos);
+$valorChamadaComPlano = $precificacoes->calculaPrecoComPlano($precoMinutoDezPorcentoAcrescido, $minutosExcedentes, $porcentagem,$faleMaisSelecionado);
 
 require_once('../models/ModelCrudChamadas.php');
 
