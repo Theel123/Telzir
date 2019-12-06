@@ -23,21 +23,32 @@
 </head>
 
 <body>
-
-<div id="container">
+ <div class="form-row">
+    <div class="form-group col-md-6">
 
       <form method="post" action="controller/ControllerPrecificacao.php">
          <td> 
-            <div class="container">
-                <div class="row text-center">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="planoSelecionado" id="planoSelecionado" value="30">
+              <label class="form-check-label" for="inlineRadio1">Fale Mais 30</label>
+            </div>
 
-                </div>
-            </div>  
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="planoSelecionado" id="planoSelecionado" value="60">
+              <label class="form-check-label" for="inlineRadio2">Fale Mais 60</label>
+            </div>
+
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="planoSelecionado" id="planoSelecionado" value="120" >
+              <label class="form-check-label" for="inlineRadio3">Fale Mais 120</label>
+         </div>
+             
         </td>
 
+  <!---Origem---> 
    <label for="exampleFormControlSelect1">Selecione sua Origem</label>  
       <div class="form-group">
-        <select class="form-control" searchable="Search here.." id="origem" name="origem">
+        <select class="form-control " searchable="Search here.." id="origem" name="origem"  >
           <option value="" disabled selected>Selecione </option>
           <?php
                   $origem =  $precificacoes->buscarOrigemDestino();
@@ -46,7 +57,8 @@
           <?php endforeach;?>
         </select>
       </div>
-    
+
+    <!---Destino---> 
    <label for="exampleFormControlSelect1">Selecione seu Destino</label>  
       <div class="form-group">
         <select class="form-control" searchable="Search here.." id="destino" name="destino">
@@ -61,7 +73,7 @@
 
         <div class="form-group">
           <label for="usr">Minutos que deseja falar:</label>
-          <input type="text" class="form-control" id="minutos" name="minutos"  onkeypress="return onlynumber();">
+          <input type="text" class="form-control" id="minutos" name="minutos" onkeypress="return onlynumber();">
         </div>
 
         <div class="form-group">
@@ -72,6 +84,8 @@
 
 </div>
 </div>
+</div>
+
 
 <div class="row justify-content-right">
 <div class="col-3">
@@ -80,7 +94,6 @@
       <th scope="col">Id</th>
       <th scope="col">Origem</th>
       <th scope="col">Destino</th>
-      <th scope="col">$Minuto</th>
       <th scope="col">Tempo</th>
       <th scope="col">Plano FaleMais</th>
       <th scope="col">Com FaleMais</th>
@@ -96,10 +109,11 @@
       <td><?php print $item['id_chamada']?> </td> 
       <td><?php print $item['origem']?></td> 
       <td><?php print $item['destino']?> </td>
-      <td><?php print $item['precoMinuto']?> </td> 
-      <td><?php print $item['precoMinutoComPlano']?> </td> 
-      <td><?php print $item['precoMinutoSemPlano']?> </td>
-      <td><?php print $item['planoSolicitado']?> </td> 
+      <td><?php print $item['quantidadeMinutos']?> </td>
+      <td><?php print  'Fale Mais '.$item['planoSolicitado']?> </td> 
+      <td><?php print '$'.$item['precoMinutoComPlano']?> </td> 
+      <td><?php print '$'.$item['precoMinutoSemPlano']?> </td>
+
       <td>
           <a href="editar_livroC.php?id_livro=<?php print $item['id_chamada']; ?>">[EDITAR]</a> 
           <a href="controller/ControllerPrecificacao.php?id_chamada=<?php print $item['id_chamada']; ?>">[DELETAR]</a> 

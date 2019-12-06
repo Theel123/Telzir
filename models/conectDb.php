@@ -1,5 +1,6 @@
+
 <?php
- 	 class conexaoMysql {
+/* 	 class conexaoMysql {
 
  	 	 public function __construct() {}
 
@@ -33,3 +34,4 @@
 		
 	
 	
+*/

@@ -30,11 +30,11 @@ Class planoFaleMais120 extends planoFaleMais{
 */
  // Aqui serao todos Post
 
-$origem = 0.11;
-$destino = 0.16;
-$precoMin = 1.70;
+$origem = 0.18;
+$destino = 0.11;
+$precoMin = 1.90;
 $porcentagem = 10.00;
-$quantidadeMinutos = 80;
+$quantidadeMinutos = 200;
 
 //Constantes Definidas 
 
@@ -43,23 +43,22 @@ $faleMais60  = 60;
 $faleMais120 = 120;
  
  
-function calculaPrecoChamada($origem, $destino, $precoMin, $quantidadeMinutos, $porcentagem, $plano) {
+function calculaPrecoChamada($precoMin, $quantidadeMinutos, $porcentagem,$plano) {
  
     print('voce optou pelo plano Fale Mais '.$plano.' por isso tem '.$plano.' minutos em chamadas gratuitas'.'<br>');
 
     $precoChamadaSemPlano = $precoMin * $quantidadeMinutos;
-    print('o preco em reais sem o plano fica '.abs($precoChamadaSemPlano).'<br>'); 
+    print('o preco em reais sem o plano fica '.$precoChamadaSemPlano.'<br>'); 
 
     $minutosExcedentes = $quantidadeMinutos-$plano;
-    print('Minutos Excedentes '.abs($minutosExcedentes).'<br>');
+    print('Minutos Excedentes '.$minutosExcedentes.'<br>');
     
     $precoMinMais10P = $precoMin  + ($porcentagem * $precoMin);
     print($precoMinMais10P);
     
     $precoChamadaComPlano = $precoMinMais10P * ($minutosExcedentes);
     $valorMinutosExcedentes = $precoChamadaComPlano;
-    print('o preco em reais com o plano fica '.abs($valorMinutosExcedentes).'<br>');  
-
+    print('o preco em reais com o plano fica '.$valorMinutosExcedentes.'<br>');
 }
 
 
@@ -83,40 +82,4 @@ if(isset($origem))
  
         } else {
             print('selecione um plano ou selecione a opcao da simulacao sem plano');
-     }
-        ?>
-        
-
-<!DOCTYPE html>
-<html lang="pt-br">
-	<head>
-		<meta charset="utf-8">
-		<title>AJAX, JSON E PHP</title>
-        	<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
-        	<script src="ajax.js"></script>
-	</head>
-	<body>
-		<table border="1" width="500">
-		    <thead>
-		        <tr>
-		            <th>ID</th>
-		            <th>Origem</th>
-		            <th>Destino</th>
-                    <th>ID</th>
-                    <th>Nome</th>
-                    <th>E-mail</th>
-		        </tr>
-         
-                    <td><?php print($precoMin)?></td>
-                    <td><?php print($precoMin)?></td>  
-                    <td><?php print($precoMin)?></td>
-                    <td><?php print($precoMin)?></td>
-                    <td><?php print($precoMin)?></td>
-                    <td><?php print($precoMin)?></td>
-            
-		    </thead>
-		    <tbody id="tabela">
-		    </tbody>
-		</table>
-	</body>
-</html>
+        }

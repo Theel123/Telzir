@@ -13,7 +13,7 @@ class crudChamadas {
 		$this->conexao = new PDO("mysql:host=localhost;dbname=telzir","root","Pass@123");
 	}
 
-	public function adicionarNovaChamada($origem,$destino,$precoMinutoComPlano,$precoMinutoSemPlano,$planoSolicitado)
+	public function adicionarNovaChamada($origem,$destino,$quantidadeMinutos,$precoMinutoComPlano,$precoMinutoSemPlano,$planoSolicitado)
 	{
 
 			$sql  = "
@@ -22,6 +22,7 @@ class crudChamadas {
 				
 				 origem,
 				 destino,
+				 quantidadeMinutos,
 				 precoMinutoComPlano,
 				 precoMinutoSemPlano,
 				 planoSolicitado
@@ -31,6 +32,7 @@ class crudChamadas {
 			   
 				:origem,
 				:destino,
+				:quantidadeMinutos,
 				:precoMinutoComPlano,
 				:precoMinutoSemPlano,
 				:planoSolicitado
@@ -39,6 +41,7 @@ class crudChamadas {
 			$result = $this->conexao->prepare($sql);
 			$result->bindValue(':origem', $origem);
 			$result->bindValue(':destino', $destino);
+			$result->bindValue(':quantidadeMinutos', $quantidadeMinutos);
 			$result->bindValue(':precoMinutoComPlano', $precoMinutoComPlano);
 			$result->bindValue(':precoMinutoSemPlano', $precoMinutoSemPlano);
 			$result->bindValue(':planoSolicitado', $planoSolicitado);
@@ -118,7 +121,7 @@ class crudChamadas {
 
 			return true;
 
-		} else {
+		  } else {
 
 			return false;
 		}

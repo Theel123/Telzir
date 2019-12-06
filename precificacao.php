@@ -24,10 +24,13 @@
       <h1>Preços e Planos</h1>
       <p>Abaixo segue nossa divisão de planos, escolha o que melhor te atender</p>
   </div>
+  <blockquote>
+    <p>No momento temos poucas opções disponiveis de Origem/Destino e conforme a escolha da origem o destino será alterado dinamicamente para que não ocorra conflitos</p>
+  </blockquote>
 </div>
 <br>
 <br>
-  <div class="container">
+
 	<div class="row d-flex justify-content-center">
 		
 	   <h3>Faça uma Simulação</h3>
@@ -35,7 +38,7 @@
 	   <br>
 	</div>
    </div>
-<div id="container">
+  
 	
     <?php require('views/precos/formPrecificacao.php');?>
     <?php require('views/layoutFixo/footer.html');?>

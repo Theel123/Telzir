@@ -1,23 +1,41 @@
 <?php
 
-
  class parametrosCalculados {
 
-	private $origem;
-	private $porcentagem;
-	private $destino;
-	private $plano;
-	private $minutos;
-	private $precoMinuto;
+	public  $origem;
+	public  $porcentagem;
+	public  $destino;
+	public  $plano;
+	public  $quantidadeMinutos;
+	public  $precoMinuto;
 	private $conexao;
-	private $valorMinutoCalculado;
+	public  $valorMinutoCalculado;
 
-	public function __construct() {
+	public function __construct() 
+	{
 		$this->conexao = new PDO("mysql:host=localhost;dbname=telzir","root","Pass@123");
 	}
+
+	public function buscarInformacoes ($id)
+	{
+		$sql = "SELECT * FROM telzir.chamadas WHERE id_chamada = :id";
+		$result = $this->conexao->prepare($sql);
+		$result->bindValue(':id',$id);
+		$result->execute();
+
+			if($result->rowCount()>0){
+
+				return $result->fetch();
+
+			} else {
+
+				return array();
+			}
+	}
+
 	
-	 public function buscarOrigemDestino() 
-	 {
+	public function buscarOrigemDestino() 
+	{
 		$sql = "SELECT origem FROM origemdestino GROUP BY origem";
 		$result = $this->conexao->query($sql);
 		if($result->rowCount()>0) {
@@ -44,21 +62,72 @@
 		 }
 	}
 
-	  
-	 public	function calculaPrecoChamada($precoMin, $quantidadeMinutos, $porcentagem,$plano)
-	 {
-		 
+	public function verificaPrecoMinuto($origem,$destino) 
+	{
+		
+		$sql = "SELECT precoMinuto FROM origemdestino WHERE origem = :origem AND destino = :destino";
+		$result = $this->conexao->prepare($sql);
+		$result->bindValue(':origem', $origem);
+		$result->bindValue(':destino', $destino);
+		$result->execute();
 
-	    $precoChamadaSemPlano = $precoMin * $quantidadeMinutos;
+		if($result->rowCount()>0) {
 
-	    $minutosExcedentes = $quantidadeMinutos-$plano;
-	    
-	    $precoMinMais10P = $precoMin  + ($porcentagem * $precoMin);
-	    
-	    $precoChamadaComPlano = $precoMinMais10P * ($minutosExcedentes);
-	    $valorMinutosExcedentes = $precoChamadaComPlano;
+			$info = $result->fetch();
+			return $info['precoMinuto'];
 
-	 }
+			} else {
+
+				return'';
+			}
+	}
+
+
+	public function calculaMinutosExcedentes($plano,$quantidadeMinutos)
+	{
+		 $this->plano = $plano;
+		 $this->quantidadeMinutos = $quantidadeMinutos;
+
+		 $minutosExcedentes = $this->plano - $this->quantidadeMinutos;
+
+		 if ($minutosExcedentes >= 0 ) {
+
+		 	return abs($minutosExcedentes);
+
+		 } else {
+
+		 	return false;
+
+		 }
+	}
+
+
+
+	public function calculaPrecoSemPlano($precoMinuto,$quantidadeMinutos)
+	{
+		$this->precoMinuto = $precoMinuto;
+		$this->quantidadeMinutos = $quantidadeMinutos;
+
+		return $precoChamadaSemPlano =  $this->precoMinuto * $this->quantidadeMinutos;
+
+	}
+
+
+
+	public function calculaPrecoComPlano ($precoMinuto,$quantidadeMinutos,$porcentagem,$plano) 
+	{
+		$this->precoMinuto = $precoMinuto;
+		$this->quantidadeMinutos = $quantidadeMinutos;
+		$this->plano =$plano;
+		$this->porcentage = $porcentagem;
+
+
+			$precoMinutoAcrescidoDezPorcento = $precoMinuto + ($porcentagem + $precoMinuto);
+			return $precoMinutoAcrescidoDezPorcento;
+
+	}
+
+
 
 }
 
