@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="css/site.css">
+   	<link rel="shortcut icon" href="imagens/icone.png">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <title>Home</title>
 </head>
@@ -19,6 +20,7 @@
 
 	<script src="js/jquery-3.4.1.min.js" type="text/javascript" ></script>
 	<script src="js/bootstrap.bundle.min.js" type="text/javascript" ></script>
+	
 </body>
 </html>
 

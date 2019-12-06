@@ -1,96 +1,75 @@
+<?php
+  require_once('models/ModelPrecificacao.php');
+  $precificacoes = new parametrosCalculados();
+?>
 
+<?php
+  require_once('models/ModelCrudChamadas.php');
+  $chamada = new crudChamadas();
+/*
+    if(!empty($_GET['id_chamada'])){
+    $id = $_GET['id_chamada']; 
+    $info = $chamada->getInfo($id); } ?> 
+*/
+?>
 <html>
 
 <head>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-
-    <script>
-        $( document ).ready(function() {
-            $("#formId").submit(function(e){
-                e.preventDefault();
-
-                //var data = {}
-                var json = ConvertFormToJSON("#formId");
-                var Form = this;
-
-                alert(json );
-
-
-                //Save Form Data........
-                $.ajax({
-                    cache: false,
-                    url : 'http://uol.com.br/',
-                    type: "POST",
-                    dataType : "json",
-                    data : json,
-                    context : Form,
-                    success : function(callback){
-                        //Where $(this) => context == FORM
-                        console.log(JSON.parse(callback));
-                        $(this).html("Success!");
-                    },
-                    error : function(){
-                        $(this).html("Error!");
-                    }
-                });
-            });
-        });
-
-
-        function ConvertFormToJSON(form){
-            console.log('ConvertFormToJSON invoked!');
-            var array = jQuery(form).serializeArray();
-            var json = {};
-
-            jQuery.each(array, function() {
-                json[this.name] = this.value || '';
-            });
-
-            console.log('JSON: '+json);
-            return json;
-        }
+    <script src="js/formulario.js" type="text/javascript"></script>
+    <script  type="text/javascript">
+      var origem = "<?php print $origem;?>";
     </script>
-
 </head>
 
 <body>
 
 <div id="container">
 
-<div class="row justify-content-start">
-  <div class="col-3">
+      <form method="post" action="controller/ControllerPrecificacao.php">
+         <td> 
+            <div class="container">
+                <div class="row text-center">
 
-    <form id="formId">
-        <table>
-            <tr> 
-                <td>Nome:</td>
-                <td>
-                  <select name="editoras" id="editoras">
-                    <option>Selecione sua Origem</option>
+                </div>
+            </div>  
+        </td>
 
-                    <?php
-                       $lista =  $livro->arrayOrigens();
-                       foreach ($lista as $item):?>
-
-                       <option value=<?php print $item['origem'];?> ><?php print $item['origem'];?></option>
-
-                    <?php endforeach;?>
-                        </select><
-                      </td>
-            </tr>
-            <tr> 
-                <td>Email:</td>
-                <td><input type="text" size=100 id="inputEmailId" /></td>
-            </tr>
-            <tr> 
-                <td>CPF:</td>
-                <td><input type="text" size=100 id="inputCpfId" /></td>
-            </tr>
-            <tr><td><input type="submit" value="Submit" /></td></tr>
+   <label for="exampleFormControlSelect1">Selecione sua Origem</label>  
+      <div class="form-group">
+        <select class="form-control" searchable="Search here.." id="origem" name="origem">
+          <option value="" disabled selected>Selecione </option>
+          <?php
+                  $origem =  $precificacoes->buscarOrigemDestino();
+                  foreach ($origem as $item):?>
+                  <option value="<?php print $item['origem'];?> "><?php print $item['origem'];?></option>
+          <?php endforeach;?>
+        </select>
+      </div>
     
-        </table>
+   <label for="exampleFormControlSelect1">Selecione seu Destino</label>  
+      <div class="form-group">
+        <select class="form-control" searchable="Search here.." id="destino" name="destino">
+          <option value="" disabled selected>Selecione </option>
+          <?php
+                  $destino =  $precificacoes->buscarDestinoBaseadoNaOrigem();
+                  foreach ($destino as $item):?>
+                  <option value="<?php print $item['destino'];?> "><?php print $item['destino'];?></option>
+          <?php endforeach;?>
+    </select>
+  </div>
 
-    </form>
+        <div class="form-group">
+          <label for="usr">Minutos que deseja falar:</label>
+          <input type="text" class="form-control" id="minutos" name="minutos"  onkeypress="return onlynumber();">
+        </div>
+
+        <div class="form-group">
+          <button type="submit" class="btn btn-success">Success</button>
+        </div>
+
+   </form>
+
 </div>
 </div>
 
@@ -101,62 +80,32 @@
       <th scope="col">Id</th>
       <th scope="col">Origem</th>
       <th scope="col">Destino</th>
+      <th scope="col">$Minuto</th>
       <th scope="col">Tempo</th>
       <th scope="col">Plano FaleMais</th>
       <th scope="col">Com FaleMais</th>
       <th scope="col">Sem FaleMais</th>
+      <th scope="col">Ações</th>
 
-    </tr>
   </thead>
-  <tbody>
 
+   <tbody> 
+    <?php $lista = $chamada->buscarChamadas();
+     foreach ($lista as $item): ?> <tr>
 
-             <td> 
-
-            <a href="#">[EDITAR]</a>
-            <a href="#">[DELETAR]</a>
-        </td>
-    
-             <td> 
-
-            <a href="#">[EDITAR]</a>
-            <a href="#">[DELETAR]</a>
-        </td>
-    
-             <td> 
-
-            <a href="#">[EDITAR]</a>
-            <a href="#">[DELETAR]</a>
-        </td>
-    
-
-             <td> 
-
-            <a href="#">[EDITAR]</a>
-            <a href="#">[DELETAR]</a>
-        </td>
-    
-             <td> 
-
-            <a href="#">[EDITAR]</a>
-            <a href="#">[DELETAR]</a>
-        </td>
-    
-             <td> 
-
-            <a href="#">[EDITAR]</a>
-            <a href="#">[DELETAR]</a>
-        </td>
-    
-
-             <td> 
-
-            <a href="#">[EDITAR]</a>
-            <a href="#">[DELETAR]</a>
-        </td>
-    
-  </tbody>
-</table>
+      <td><?php print $item['id_chamada']?> </td> 
+      <td><?php print $item['origem']?></td> 
+      <td><?php print $item['destino']?> </td>
+      <td><?php print $item['precoMinuto']?> </td> 
+      <td><?php print $item['precoMinutoComPlano']?> </td> 
+      <td><?php print $item['precoMinutoSemPlano']?> </td>
+      <td><?php print $item['planoSolicitado']?> </td> 
+      <td>
+          <a href="editar_livroC.php?id_livro=<?php print $item['id_chamada']; ?>">[EDITAR]</a> 
+          <a href="controller/ControllerPrecificacao.php?id_chamada=<?php print $item['id_chamada']; ?>">[DELETAR]</a> 
+        </td> 
+      </tr>
+       <?php endforeach; ?> </td> </tr> </tbody> </table> 
 </div>
 </div>
 

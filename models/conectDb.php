@@ -1,29 +1,35 @@
 <?php
-	
-	 $dbtype   = "mysql";
-	 $host     = "localhost";
-	 $port     = "3306";
-	 $user     = "root";
-	 $password = "Pass@123";
- 	 $db       = "telzir";
+ 	 class conexaoMysql {
 
-	try
-	{
-		$pdo = new PDO("mysql:host=localhost;dbname=telzir", "root", "Pass@123");
-		print('conectado com sucesso'); 
+ 	 	 public function __construct() {}
 
-		$sql = "SELECT * FROM telzir.precosFaleMais WHERE origem='011'";
-		$result = $pdo->query( $sql );
-		$rows = $result->fetchAll();	 
-		print('<pre>');
-		print_r(json_encode($rows));
+	 	 private static $dbtype   = "mysql";
+		 private static $host     = "localhost";
+		 private static $port     = "3306";
+		 private static $user     = "root";
+	     private static $password = "password";
+	 	 private static $db       = "telzir";
 
-	}
-	catch (PDOException $i)
-	{
-		//se houver exceção, exibe
-		die("Erro: <code>" . $i->getMessage() . "</code>");
-	}
+
+	    private function getDBType()  {return self::$dbtype;}
+	    private function getHost()    {return self::$host;}
+	    private function getPort()    {return self::$port;}
+	    private function getUser()    {return self::$user;}
+	    private function getPassword(){return self::$password;}
+	    private function getDB()      {return self::$db;}
+
+ 		private function connect(){
+	        try
+	        {
+	            $this->conexao = new PDO($this->getDBType().":host=".$this->getHost().";port=".$this->getPort().";dbname=".$this->getDB(), $this->getUser(), $this->getPassword());
+	        }
+
+	        catch (PDOException $i)
+	        {
+	           throw new PDOException($e);
+	        }
+		}
+	}	
 		
 	
 	

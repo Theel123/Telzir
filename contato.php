@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="css/site.css">
     <link rel="stylesheet" href="css/contato.css">
+     <link rel="shortcut icon" href="imagens/icone.png">
+
     <link rel="stylesheet" href="css/bootstrap.min.css">
      <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAgOt9zEeHXLscZTkCdK4fQZG6mQvCXPJk&callback=initMap">
     </script>

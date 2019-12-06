@@ -1,3 +1,7 @@
+<?php
+	session_start();
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,6 +10,8 @@
     <link rel="stylesheet" type="text/css" href="css/site.css">
     <link rel="stylesheet" type="text/css" href="css/tabelas.css">
      <link rel="stylesheet" href="css/site.css">
+         <link rel="shortcut icon" href="imagens/icone.png">
+
     <link rel="stylesheet" href="css/bootstrap.min.css">
     
     <title>Planos</title>
@@ -24,7 +30,6 @@
   <div class="container">
 	<div class="row d-flex justify-content-center">
 		
-	   <?php require('views/precos/tabelaPlanos.php');?>
 	   <h3>Faça uma Simulação</h3>
 	   <br>
 	   <br>
