@@ -50,7 +50,7 @@
 
 	public function buscarDestinoBaseadoNaOrigem() 
 	{
-		$sql = "SELECT destino FROM origemdestino"; 
+		$sql = "SELECT destino FROM origemdestino GROUP BY destino"; 
 		$result = $this->conexao->query($sql);
 		if($result->rowCount()>0) {
 

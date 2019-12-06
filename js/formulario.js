@@ -12,6 +12,7 @@ function onlynumber(evt) {
    }
 }
 
-function verificaVazios() {
+function alertar() {
+   alert('esta funcionalidade ainda nao esta pronta');
 	
 }

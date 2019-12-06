@@ -39,11 +39,11 @@
 	</div>
    </div>
   
-	
     <?php require('views/precos/formPrecificacao.php');?>
+    <?php require('views/precos/tabelaChamadas.php');?>
     <?php require('views/layoutFixo/footer.html');?>
 
-<script src="js/jquery-3.4.1.min.js" type="text/javascript" ></script>
+  <script src="js/jquery-3.4.1.min.js" type="text/javascript" ></script>
 	<script src="js/bootstrap.bundle.min.js" type="text/javascript" ></script>
 </body>
 </html>

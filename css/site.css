@@ -114,3 +114,7 @@ nav {
 
 
 
+.col-3 {
+    align-content: right;
+    text-align: right;
+}

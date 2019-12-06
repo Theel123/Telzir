@@ -1,30 +1,48 @@
+
 <?php
+date_default_timezone_set('America/Sao_Paulo');
+
+
+$origem = $_POST['origem'];
+$destino = $_POST['destino'];
+$porcentagem = 10.00;
+$quantidadeMinutos = $_POST['minutos'];
+$faleMaisSelecionado = $_POST['planoSelecionado'];
+
+
+
 require_once('../models/ModelPrecificacao.php');
 $precificacoes = new parametrosCalculados();
- 
-if (!empty($_GET['id_chamada'])) {
-print('<pre>');
-print_r($_POST);
-die();
-  $bairro      =  $_POST['bairros'];
-  $cidade      =  $_POST['cidades'];
-  $endereco      =  $_POST['enderecos'];
-  $nome            =  $_POST['nome_funcionario'];
-  $cpf         =  $_POST['cpf'];
-  $rg          =  $_POST['rg'];
-  $nascimento      =  $_POST['dataNascimento'];
-  $civil           =  $_POST['estadoCivil'];
-  $sexo            =  $_POST['groupOfDefaultRadios'];
-  $email       =  $_POST['email'];
-  $telefone      =  $_POST['telefone'];
-  $celular     =  $_POST['celular'];
-  $numero          =  $_POST['numero'];
-  $cargo           =  $_POST['cargo'];
-  $admissao        =  $_POST['dataAdmissao'];
-  $complemento   =  $_POST['complemento'];
-  $filhos          =  $_POST['filhos'];
- 
-  $precificacoes->editar($bairro,$cidade,$endereco,$nome,$cpf,$rg,$nascimento,$civil,$sexo,$email,$telefone,
-    $celular,$numero,$admissao,$complementpo,$cargo,$filhos);
-  header('Location: ../precificacao.php');
-} 
+
+$precoMinuto = $precificacoes->verificaPrecoMinuto($origem,$destino);
+$precoMinutoDezPorcentoAcrescido = $precificacoes->calculaPorcentagem($precoMinuto,$porcentagem);
+$minutosExcedentes = $precificacoes->calculaMinutosExcedentes($faleMaisSelecionado, $quantidadeMinutos);
+$valorChamadaSemPlano = $precificacoes->calculaPrecoSemPlano($precoMinuto, $quantidadeMinutos);
+$valorChamadaComPlano = $precificacoes->calculaPrecoComPlano($precoMinutoDezPorcentoAcrescido, $minutosExcedentes, $porcentagem,$faleMaisSelecionado);
+
+require_once('../models/ModelCrudChamadas.php');
+
+
+if(!empty($_GET['id_chamada'])){
+    $id = $_GET['id_chamada'];
+    $info = $acoesCrud->getInfo($id);
+
+} else{
+    header('Location: precificacao.php');
+    exit();
+}
+
+$acoesCrud = new crudChamadas();
+$acoesCrud->editarChamadas(
+  $origem,
+  $destino,
+  $quantidadeMinutos,
+  $valorChamadaComPlano,
+  $valorChamadaSemPlano,
+  $faleMaisSelecionado
+);
+
+header('Location: ../precificacao.php');
+
+
+?>
