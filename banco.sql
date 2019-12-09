@@ -54,6 +54,16 @@ VALUES
 INSERT INTO origemdestino 
 (origem,destino,precoMinuto)
 VALUES
+(16,16,2,00);
+
+INSERT INTO origemdestino 
+(origem,destino,precoMinuto)
+VALUES
+(17,17,2,00);
+
+INSERT INTO origemdestino 
+(origem,destino,precoMinuto)
+VALUES
 (11,17,1.70);
 
 INSERT INTO origemdestino 
