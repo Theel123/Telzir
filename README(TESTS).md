@@ -12,6 +12,7 @@ MYSQL
 
 o mysql vem instalado juntamente ao xampp, com isso fica tudo mais fácil, basta que o arquivo, banco.sql seja executado no terminal do windows, e as tabelas serão criadas, 
 após isso, o sistema estará com as tabelas criadas. E pronto pra funcionar.
+PS:(é necessario se atentar aos parametros de conexão se caso já tiver o mysql instalado, talvez de erro no parametro de senha)
 
 
 TESTES 
