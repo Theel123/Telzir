@@ -22,10 +22,13 @@
   <div class="container">
     <div class="row justify-content-center">
       <h1>Preços e Planos</h1>
-      <p>Abaixo segue nossa divisão de planos, escolha o que melhor te atender</p>
   </div>
   <blockquote>
     <p>No momento temos poucas opções disponiveis de Origem/Destino e conforme a escolha da origem o destino será alterado dinamicamente para que não ocorra conflitos</p>
+  </blockquote>
+    <blockquote>
+    <h3><strong><p>Planos FaleMais30/60/120</p></strong></h3>
+    <p>Cada plano te tras mais beneficios em minutos, ou seja se optar pelo plano FaleMais120, tera 120 em minutos abonados em suas chamadas :)</p>
   </blockquote>
 </div>
 <br>
