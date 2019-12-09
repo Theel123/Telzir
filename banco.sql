@@ -32,23 +32,66 @@ INSERT INTO origemdestino
 (origem,destino,precoMinuto)
 VALUES
 (18,11,1.90);
-INSERT INTO origemdestino 
-(origem,destino,precoMinuto)
-VALUES
-(11,11,2,90);
-INSERT INTO origemdestino 
-(origem,destino,precoMinuto)
-VALUES
-(11,17,1.70);
-INSERT INTO origemdestino 
-(origem,destino,precoMinuto)
-VALUES
-(17, 18, 0.90);
+
+
 INSERT INTO origemdestino 
 (origem,destino,precoMinuto)
 VALUES
 (11,18,1.90);
+
+
+INSERT INTO origemdestino 
+(origem,destino,precoMinuto)
+VALUES
+(18,18,2.00);
+
+
+INSERT INTO origemdestino 
+(origem,destino,precoMinuto)
+VALUES
+(11,11,2,00);
+
+INSERT INTO origemdestino 
+(origem,destino,precoMinuto)
+VALUES
+(11,17,1.70);
+
+INSERT INTO origemdestino 
+(origem,destino,precoMinuto)
+VALUES
+(17, 18, 0.90);
+
+INSERT INTO origemdestino 
+(origem,destino,precoMinuto)
+VALUES
+(18, 17, 0.90);
+
 INSERT INTO origemdestino 
 (origem,destino,precoMinuto)
 VALUES
 (18,11,1.90);
+
+
+INSERT INTO origemdestino 
+(origem,destino,precoMinuto)
+VALUES
+(11,16,1.90);
+
+
+INSERT INTO origemdestino 
+(origem,destino,precoMinuto)
+VALUES
+(16,11,2.90);
+
+
+INSERT INTO origemdestino 
+(origem,destino,precoMinuto)
+VALUES
+(11,17,1.70);
+
+
+INSERT INTO origemdestino 
+(origem,destino,precoMinuto)
+VALUES
+(17,11,2.70);
+
