@@ -12,10 +12,10 @@
     </script>
     <script  type="text/javascript" >
 		 function initMap() {
-			  var university = {lat: -23.664373, lng: -46.678076};
+			  var edificio = {lat: -23.545432, lng: -46.643594};
 			  var map = new google.maps.Map(
-			      document.getElementById('map'), {zoom: 18, center: university});
-			  var marker = new google.maps.Marker({position: university, map: map});
+			      document.getElementById('map'), {zoom: 18, center: edificio});
+			  var marker = new google.maps.Marker({position: edificio, map: map});
 		}	  
     </script>
 
