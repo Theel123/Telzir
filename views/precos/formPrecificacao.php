@@ -26,7 +26,7 @@
   <div class="row justify-content-center">
     <div class="form-group col-md-6">
 
-      <form method="post" action="controller/ControllerPrecificacao.php">
+      <form method="post" action="controller/ControllerPrecificacao.php" onsubmit="validacaoFormulario();">
          <td> 
             <div class="form-check form-check-inline">
               <input class="form-check-input" type="radio" name="planoSelecionado" id="planoSelecionado" value="30">
@@ -79,7 +79,7 @@
         </div>
 
         <div class="form-group">
-          <button type="submit" class="btn btn-success">Success</button>
+          <button type="submit" class="btn btn-success"   >Success</button>
         </div>
 
    </form>

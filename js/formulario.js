@@ -12,7 +12,31 @@ function onlynumber(evt) {
    }
 }
 
-function alertar() {
-   alert('esta funcionalidade ainda nao esta pronta');
-	
+function validacaoFormulario() {
+
+   var planoFaleMais = document.getElementById('planoSelecionado').value;
+   var origem = document.getElementById('origem').value;
+   var destino = document.getElementById('destino').value;
+   var minutos = document.getElementById('minutos').value;
+
+   if (planoFaleMais == 0 || planoFaleMais == null) {
+
+      alert('por favor preencha o plano')
+      return false
+   
+   } else if (origem == 0 || origem  == null ) {
+
+      alert('por favor preencha o origem')
+      return false
+
+   } else if (destino == 0 || destino == null) {
+
+      alert('por favor preencha a destino');
+      return false
+
+   } else if (minutos == 0 || minutos == null ) {
+
+      alert('por favor preencha os minutos')
+      return false
+   } 
 }
